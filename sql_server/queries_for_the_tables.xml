@@ -1,0 +1,19 @@
+<Table><Row><id>1</id><table_created_or_edited>rss_schema.rss_feed</table_created_or_edited><query_text>CREATE TABLE rss_schema.rss_feed (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    title NVARCHAR(255) NOT NULL,
+    description NVARCHAR(MAX) NULL,
+    pubDate DATETIME NULL,
+    link NVARCHAR(255) NOT NULL,
+    parse_dt DATETIME DEFAULT GETDATE() NOT NULL,
+    download_flag CHAR(1) DEFAULT 'N' NOT NULL,
+    download_dt DATETIME NULL,
+    mp3_location NVARCHAR(255) NULL,
+    transcription_dt DATETIME NULL,
+    transcription_location NVARCHAR(255) NULL,
+    podcast_title NVARCHAR(250) NOT NULL,
+    language NVARCHAR(250) NULL,
+);</query_text><last_change>2024-07-16T16:28:39.6130000</last_change></Row><Row><id>2</id><table_created_or_edited>meta_data.queries</table_created_or_edited><query_text>CREATE TABLE meta_data.queries (
+    id INT PRIMARY KEY IDENTITY(1,1),
+	table_created_or_edited NVARCHAR(255) NOT NULL,
+	query_text NVARCHAR(MAX) NOT NULL,
+	last_change DATETIME DEFAULT GETDATE() NOT NULL)</query_text><last_change>2024-07-16T16:29:34.6130000</last_change></Row></Table>
