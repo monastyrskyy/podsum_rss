@@ -1,3 +1,7 @@
+# INTRO
+# this is stage 2
+# This script parses the newly loaded files every day, and adds any episodes that aren't in the database.
+
 using namespace System.Net
 
 param($Timer)
@@ -114,6 +118,13 @@ foreach ($blob in $blobs) {
 
         # Insert the item into the SQL table
         Insert-RssItem -title $title -description $description -pubDate $pubDate -enclosureUrl $enclosureUrl -duration $duration -podcastTitle $podcastTitle -language $language
+    }
+    # Attempt to delete the XML file after processing
+    try {
+        Remove-Item -Path $blob.Name -Force
+        Write-Host "Temporary file deleted successfully: $($blob.Name)"
+    } catch {
+        Write-Host "Failed to delete temporary file: $($blob.Name). Error: $_"
     }
 }
 

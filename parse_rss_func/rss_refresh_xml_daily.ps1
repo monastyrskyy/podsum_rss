@@ -1,3 +1,9 @@
+# INTRO
+# refreshed the XML Files daily. Looks up the XML URLs from the dbo.rss_urls table, and reloads them
+# versioning is turned on, so the files are just overwritten each day.
+# this is stage 1
+# state 2 is to parse the new files every day, and add any episodes that aren't in the database.
+
 param($Timer)
 
 Write-Host "Function started..."
